@@ -3,7 +3,8 @@ import sys,pickle
 
 from PyQt5 import uic, QtWidgets ,QtCore, QtGui
 from sklearn.preprocessing import LabelEncoder
-
+import pandas as pd
+from scipy.io import arff
 import linear_reg,svm_model,table_display,data_visualise,SVR,logistic_reg,RandomForest
 import KNN,mlp,pre_trained,add_steps,gaussian
 
@@ -96,7 +97,7 @@ class UI(QMainWindow):
         self.show()
 
     def scale_value(self):
-
+        
         #my_dict={"StandardScaler":standard_scale ,"MinMaxScaler":min_max, "PowerScaler":power_scale}
         if self.scaler.currentText()=='StandardScale':
             self.df,func_name = data.StandardScale(self.df,self.target_value)
@@ -142,7 +143,6 @@ class UI(QMainWindow):
     def filldetails(self,flag=1):
          
         if(flag==0):  
-            
             self.df = data.read_file(str(self.filePath))
         
         
@@ -219,9 +219,10 @@ class UI(QMainWindow):
         self.filldetails()
 
     def getCSV(self):
-        self.filePath, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '/home/akshay/Downloads/ML Github/datasets',"csv(*.csv)")
+        self.filePath, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '/home/akshay/Downloads/ML Github/datasets',"arff(*.arff)")
         self.columns.clear()
-        code="data=pd.read_csv('"+str(self.filePath)+"')"
+        
+        code="pd.DataFrame((data=arff.loadarff('"+str(self.filePath)+"'))[0])"
         steps.add_code(code)
         steps.add_text("File "+self.filePath+" read")
         if(self.filePath!=""):

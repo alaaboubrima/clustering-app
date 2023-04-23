@@ -4,13 +4,21 @@ import seaborn as sns
 import numpy as np 
 from sklearn.preprocessing import LabelEncoder,StandardScaler,MinMaxScaler,PowerTransformer
 import add_steps
+from scipy.io import arff
+from sklearn.preprocessing import LabelEncoder
+from sklearn.impute import SimpleImputer
+
 class data_:
 	
 	
 	
 	def read_file(self,filepath):
-		
-		return pd.read_csv(str(filepath))
+		data = arff.loadarff(str(filepath))
+		df = pd.DataFrame(data[0])
+		le = LabelEncoder()
+		for col in df.select_dtypes(['object', 'category']).columns:
+			df[col] = le.fit_transform(df[col])
+		return pd.DataFrame(data[0])
 
 	def convert_category(self,df,column_name):
 
