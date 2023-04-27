@@ -7,6 +7,8 @@ import add_steps
 from scipy.io import arff
 from sklearn.preprocessing import LabelEncoder
 from sklearn.impute import SimpleImputer
+from sklearn.cluster import KMeans
+
 
 class data_:
 	
@@ -54,7 +56,7 @@ class data_:
 		return df[column]
 
 	def fillmean(self,df,column):
-
+		
 		
 		df[column].fillna(df[column].mean(),inplace=True)
 		return df[column]
@@ -79,23 +81,22 @@ class data_:
 
 		return str(df.describe())
 	
-	def StandardScale(self,df,target):
+	def StandardScale(self,df):
 		
-		sc=StandardScaler()
-		x=df.drop(target,axis=1)
-		scaled_features=sc.fit_transform(x)
-		scaled_features_df = pd.DataFrame(scaled_features, index=x.index, columns=x.columns)
-		scaled_features_df[target]=df[target]
-		return scaled_features_df,"StandardScaler()"
+		scaler = StandardScaler()
+		data1 = df.copy()
+		data1[df.select_dtypes(include="number").columns] = scaler.fit_transform(df.select_dtypes(include="number"))
+		data = data1[df.select_dtypes(include="number").columns]
+		
+		return data,"StandardScaler()"
 
-	def MinMaxScale(self,df,target):
+	def MinMaxScale(self,df):
 		
-		sc=MinMaxScaler()
-		x=df.drop(target,axis=1)
-		scaled_features=sc.fit_transform(x)
-		scaled_features_df = pd.DataFrame(scaled_features, index=x.index, columns=x.columns)
-		scaled_features_df[target]=df[target]
-		return scaled_features_df,"MinMaxScaler()"
+		scaler = MinMaxScaler()
+		data1 = df.copy()
+		data1[df.select_dtypes(include="number").columns] = scaler.fit_transform(df.select_dtypes(include="number"))
+		data = data1[df.select_dtypes(include="number").columns]
+		return data,"MinMaxScaler()"
 		
 	def PowerScale(self,df,target):
 		
@@ -106,7 +107,23 @@ class data_:
 		scaled_features_df[target]=df[target]
 		return scaled_features_df,"PowerTransformer()"
 
+	def elbow_(self,data):
+            # Initialiser une liste vide pour stocker les sommes des carrés des distances
+			sse = []
 
+            # Itérer sur différents nombres de clusters
+			for k in range(1, 11):
+				kmeans = KMeans(n_clusters=k, max_iter=1000)
+				kmeans.fit(data)
+				sse.append(kmeans.inertia_)
+
+			# Tracer la courbe d'Elbow
+			plt.plot(range(1, 11), sse)
+			plt.title("Courbe d'Elbow")
+			plt.xlabel("Nombre de clusters")
+			plt.ylabel("Somme des carrés des distances")
+			plt.show()
+	    
 	def plot_histogram(self,df,column):
 		
 		df.hist(column=column)

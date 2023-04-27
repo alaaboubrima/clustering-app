@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 import sys,pickle
-
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
 from PyQt5 import uic, QtWidgets ,QtCore, QtGui
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
@@ -32,9 +33,14 @@ class UI(QMainWindow):
         steps=add_steps.add_steps()
 
 
+        
+        self.Elbow_btn = self.findChild(QPushButton,"Elbow")
+
+        
+        
         self.Browse = self.findChild(QPushButton,"Browse")
         self.Drop_btn = self.findChild(QPushButton,"Drop")
-        
+
         self.fillna_btn = self.findChild(QPushButton,"fill_na")
         self.con_btn = self.findChild(QPushButton,"convert_btn")
         self.columns= self.findChild(QListWidget,"column_list")
@@ -70,6 +76,11 @@ class UI(QMainWindow):
 
         self.heatmap_btn = self.findChild(QPushButton,"heatmap")
 
+
+
+        self.Elbow_btn.clicked.connect(self.elbow)
+
+
         self.columns.clicked.connect(self.target)
         self.Browse.clicked.connect(self.getCSV)
         self.Drop_btn.clicked.connect(self.dropc)
@@ -96,15 +107,22 @@ class UI(QMainWindow):
         self.go_pre_trained.clicked.connect(self.test_pretrained)
         self.show()
 
+
+
+    def elbow(self):
+        data.elbow_(self.df)
+           
+
+
     def scale_value(self):
         
         #my_dict={"StandardScaler":standard_scale ,"MinMaxScaler":min_max, "PowerScaler":power_scale}
         if self.scaler.currentText()=='StandardScale':
-            self.df,func_name = data.StandardScale(self.df,self.target_value)
+            self.df,func_name = data.StandardScale(self.df)
         elif self.scaler.currentText()=='MinMaxScale':
-            self.df,func_name = data.MinMaxScale(self.df,self.target_value)
+            self.df,func_name = data.MinMaxScale(self.df)
         elif self.scaler.currentText()=='PowerScale':
-            self.df,func_name = data.PowerScale(self.df,self.target_value)
+            self.df,func_name = data.PowerScale(self.df)
         
         steps.add_text(self.scaler.currentText()+" applied to data")
         steps.add_pipeline(self.scaler.currentText(),func_name)
@@ -213,7 +231,7 @@ class UI(QMainWindow):
     def fillme(self):
 
         self.df[self.emptycolumn.currentText()]=data.fillmean(self.df,self.emptycolumn.currentText())
-        code="data['"+column+"'].fillna(data['"+self.emptycolumn.currentText()+"'].mean(),inplace=True)"
+        code="data['"+self.emptycolumn.currentText()+"'].fillna(data['"+self.emptycolumn.currentText()+"'].mean(),inplace=True)"
         steps.add_code(code)
         steps.add_text("Empty values of "+ self.emptycolumn.currentText() + " filled with mean value")
         self.filldetails()
