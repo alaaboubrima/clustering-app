@@ -8,6 +8,11 @@ from scipy.io import arff
 from sklearn.preprocessing import LabelEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.cluster import KMeans
+from sklearn_extra.cluster import KMedoids
+from sklearn.cluster import AgglomerativeClustering
+import scipy.cluster.hierarchy as shc
+import matplotlib.pyplot as plt
+
 
 
 class data_:
@@ -136,19 +141,59 @@ class data_:
 		sns.heatmap(x,annot=True,mask=mask,vmin=-1,vmax=1)
 		plt.show()
 
-	def scatter_plot(self,df,x,y,c,marker):
+	def kmeans_plot(self,df,x,y,k,marker):
+		# create the k-means object
+		kmeans = KMeans(n_clusters=int(k), init='k-means++', random_state=42)
+
+		# fit the model to the data
+		kmeans.fit(df)
+
+		# retrieve the labels for each data point
+		labels = kmeans.labels_
 		plt.figure()
-		plt.scatter(df[x],df[y],c=c,marker=marker)
+		#plt.scatter(df[x],df[y],c=c,marker=marker)
+		plt.scatter(df[x], df[y], c=kmeans.labels_ ,marker=marker)
 		plt.xlabel(x)
 		plt.ylabel(y)
 		plt.title(y + " vs "+ x)
 		plt.show()
 
-	def line_plot(self,df,x,y,c,marker):
+	def kmedoid_plot(self,df,x,y,k,marker):
+		# create the k-means object
+		kmedoids = KMedoids(n_clusters=int(k), metric='euclidean', random_state=42)
+
+		# fit the model to the data
+		kmedoids.fit(df)
+
+		# retrieve the labels for each data point
+		labels = kmedoids.labels_
 		plt.figure()
-		df=df.sort_values(by=[x])
-		plt.plot(df[x],df[y],c=c,marker=marker)
+		#plt.scatter(df[x],df[y],c=c,marker=marker)
+		plt.scatter(df[x], df[y], c=kmedoids.labels_ ,marker=marker)
 		plt.xlabel(x)
 		plt.ylabel(y)
 		plt.title(y + " vs "+ x)
 		plt.show()
+
+
+
+	def agnes_plot(self,df,k):
+		agg = AgglomerativeClustering(n_clusters=int(k), linkage='ward')
+		agg.fit(df)
+		agg_labels = agg.labels_
+		agg_dist = shc.distance.pdist(df, metric='euclidean')
+		agg_linkage = shc.linkage(agg_dist, method='ward')
+		# Create the dendrogram for Agnes
+		plt.figure(figsize=(10, 7))
+		plt.title("Dendrogramme d'AGNES")
+		dend = shc.dendrogram(agg_linkage, labels=agg_labels)
+		plt.show()
+
+	def btn_1(self,df,k):
+		# create the k-means object
+		kmeans = KMeans(n_clusters=int(k), init='k-means++', random_state=42)
+		# fit the model to the data
+		kmeans.fit(df)
+		return int(kmeans.inertia_)
+
+		

@@ -59,14 +59,22 @@ class UI(QMainWindow):
         self.scatter_x=self.findChild(QComboBox,"scatter_x")
         self.scatter_y=self.findChild(QComboBox,"scatter_y")
         self.scatter_mark=self.findChild(QComboBox,"scatter_mark")
-        self.scatter_c=self.findChild(QComboBox,"scatter_c")
-        self.scatter_btn = self.findChild(QPushButton,"scatterplot")
+        self.scatter_c=self.findChild(QLineEdit,"scatter_c")
+        self.kmean_btn = self.findChild(QPushButton,"kmeanplot")
         
         self.plot_x=self.findChild(QComboBox,"plot_x")
         self.plot_y=self.findChild(QComboBox,"plot_y")
         self.plot_mark=self.findChild(QComboBox,"plot_marker")
         self.plot_c=self.findChild(QComboBox,"plot_c")
-        self.plot_btn = self.findChild(QPushButton,"lineplot")
+        self.kmedoid_btn = self.findChild(QPushButton,"kmedoidplot")
+
+        self.agnes_k=self.findChild(QComboBox,"agnes_k")
+        self.agnes_btn = self.findChild(QPushButton,"agnesplot")
+        self.diana_btn = self.findChild(QPushButton,"dianaplot")
+
+
+
+        self.btn1 = self.findChild(QPushButton,"btn1")
 
         self.hist_column=self.findChild(QComboBox,"hist_column")
         self.hist_column_add=self.findChild(QComboBox,"hist_column_add")
@@ -79,13 +87,17 @@ class UI(QMainWindow):
 
 
         self.Elbow_btn.clicked.connect(self.elbow)
+        self.btn1.clicked.connect(self.btn_1)
 
 
         self.columns.clicked.connect(self.target)
         self.Browse.clicked.connect(self.getCSV)
         self.Drop_btn.clicked.connect(self.dropc)
-        self.scatter_btn.clicked.connect(self.scatter_plot)
-        self.plot_btn.clicked.connect(self.line_plot)
+        self.kmean_btn.clicked.connect(self.kmeans_plot)
+        self.kmedoid_btn.clicked.connect(self.kmedoid_plot)
+        self.agnes_btn.clicked.connect(self.agnes_plot)
+        self.diana_btn.clicked.connect(self.diana_plot)
+
         
         self.fillna_btn.clicked.connect(self.fillna)
         self.fillmean_btn.clicked.connect(self.fillme)
@@ -112,8 +124,9 @@ class UI(QMainWindow):
     def elbow(self):
         data.elbow_(self.df)
            
-
-
+    def btn_1(self):
+        output = data.btn_1(df=self.df,k=self.scatter_c.text())
+        self.output1.setText(str(output))
     def scale_value(self):
         
         #my_dict={"StandardScaler":standard_scale ,"MinMaxScaler":min_max, "PowerScaler":power_scale}
@@ -262,16 +275,21 @@ class UI(QMainWindow):
         steps.add_text("Column "+ self.dropcolumns.currentText()+ " dropped")
         self.filldetails()  
 
-    def scatter_plot(self):
+    def kmeans_plot(self):
 
-        data.scatter_plot(df=self.df,x=self.scatter_x.currentText(),y=self.scatter_y.currentText(),c=self.scatter_c.currentText(),marker=self.scatter_mark.currentText())
+        data.kmeans_plot(df=self.df,x=self.scatter_x.currentText(),y=self.scatter_y.currentText(),k=self.scatter_c.currentText(),marker=self.scatter_mark.currentText())
 
         
 
-    def line_plot(self):
+    def kmedoid_plot(self):
 
-        data.line_plot(df=self.df,x=self.plot_x.currentText(),y=self.plot_y.currentText(),c=self.plot_c.currentText(),marker=self.plot_mark.currentText())
+        data.kmedoid_plot(df=self.df,x=self.plot_x.currentText(),y=self.plot_y.currentText(),k=self.plot_c.currentText(),marker=self.plot_mark.currentText())
      
+    def agnes_plot(self):
+        data.agnes_plot(df=self.df,k=self.plot_c.currentText())
+    def diana_plot(self):
+        data.kmedoid_plot(df=self.df,k=self.plot_c.currentText())
+
     def train_func(self):
 
         myDict={ "Linear Regression":linear_reg , "SVM":svm_model ,"SVR":SVR , "Logistic Regression":logistic_reg ,"Random Forest":RandomForest,
