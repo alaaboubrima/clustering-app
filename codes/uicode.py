@@ -35,6 +35,7 @@ class UI(QMainWindow):
 
         
         self.Elbow_btn = self.findChild(QPushButton,"Elbow")
+        self.Elbow2_btn = self.findChild(QPushButton,"Elbow2")
 
         
         
@@ -60,21 +61,38 @@ class UI(QMainWindow):
         self.scatter_y=self.findChild(QComboBox,"scatter_y")
         self.scatter_mark=self.findChild(QComboBox,"scatter_mark")
         self.scatter_c=self.findChild(QLineEdit,"scatter_c")
+        self.hist_k=self.findChild(QLineEdit,"hist_k")
+
         self.kmean_btn = self.findChild(QPushButton,"kmeanplot")
         
         self.plot_x=self.findChild(QComboBox,"plot_x")
         self.plot_y=self.findChild(QComboBox,"plot_y")
         self.plot_mark=self.findChild(QComboBox,"plot_marker")
-        self.plot_c=self.findChild(QComboBox,"plot_c")
+        self.plot_c=self.findChild(QLineEdit,"plot_c")
         self.kmedoid_btn = self.findChild(QPushButton,"kmedoidplot")
 
-        self.agnes_k=self.findChild(QComboBox,"agnes_k")
+        self.agnes_k=self.findChild(QLineEdit,"agnes_k")
+        self.diana_k=self.findChild(QLineEdit,"diana_k")
+
         self.agnes_btn = self.findChild(QPushButton,"agnesplot")
         self.diana_btn = self.findChild(QPushButton,"dianaplot")
+        self.dbscan_btn = self.findChild(QPushButton,"dbscanplot")
+        self.perf_btn = self.findChild(QPushButton,"performance")
+
+
+
+        self.min_pts=self.findChild(QLineEdit,"minpts")
+        self.epsilon=self.findChild(QLineEdit,"eps")
+        self.range1=self.findChild(QLineEdit,"range")
+
 
 
 
         self.btn1 = self.findChild(QPushButton,"btn1")
+        self.btn2 = self.findChild(QPushButton,"btn2")
+        self.btn3 = self.findChild(QPushButton,"btn3")
+        self.btn4 = self.findChild(QPushButton,"btn4")
+
 
         self.hist_column=self.findChild(QComboBox,"hist_column")
         self.hist_column_add=self.findChild(QComboBox,"hist_column_add")
@@ -87,7 +105,13 @@ class UI(QMainWindow):
 
 
         self.Elbow_btn.clicked.connect(self.elbow)
+        self.Elbow2_btn.clicked.connect(self.elbow2)
+
         self.btn1.clicked.connect(self.btn_1)
+        self.btn2.clicked.connect(self.btn_2)
+        self.btn3.clicked.connect(self.btn_3)
+        self.btn4.clicked.connect(self.btn_4)
+
 
 
         self.columns.clicked.connect(self.target)
@@ -97,6 +121,10 @@ class UI(QMainWindow):
         self.kmedoid_btn.clicked.connect(self.kmedoid_plot)
         self.agnes_btn.clicked.connect(self.agnes_plot)
         self.diana_btn.clicked.connect(self.diana_plot)
+        self.dbscan_btn.clicked.connect(self.dbscan_plot)
+        self.perf_btn.clicked.connect(self.perf_plot)
+
+
 
         
         self.fillna_btn.clicked.connect(self.fillna)
@@ -104,7 +132,7 @@ class UI(QMainWindow):
         
         self.hist_add_btn.clicked.connect(self.hist_add_column)
         self.hist_remove_btn.clicked.connect(self.hist_remove_column)
-        self.histogram_btn.clicked.connect(self.histogram_plot)
+        self.histogram_btn.clicked.connect(self.plot_histogram)
 
         self.heatmap_btn.clicked.connect(self.heatmap_gen)
 
@@ -112,21 +140,36 @@ class UI(QMainWindow):
         self.submit_btn.clicked.connect(self.set_target)
 
         self.train=self.findChild(QPushButton,"train")
-        self.train.clicked.connect(self.train_func)
+#        self.train.clicked.connect(self.train_func)
         self.scale_btn.clicked.connect(self.scale_value)
         
-        self.pre_trained.clicked.connect(self.upload_model)
-        self.go_pre_trained.clicked.connect(self.test_pretrained)
+ #       self.pre_trained.clicked.connect(self.upload_model)
+  #      self.go_pre_trained.clicked.connect(self.test_pretrained)
         self.show()
 
 
 
     def elbow(self):
         data.elbow_(self.df)
+    def elbow2(self):
+        data.elbow_2(self.df)
            
     def btn_1(self):
-        output = data.btn_1(df=self.df,k=self.scatter_c.text())
-        self.output1.setText(str(output))
+        intra, inter = data.btn_1(df=self.df,k=self.scatter_c.text())
+        self.output1.setText(str(intra))
+        self.output11.setText(str(inter))
+    def btn_2(self):
+        intra, inter = data.btn_2(df=self.df,k=self.plot_c.text())
+        self.output2.setText(str(intra))
+        self.output22.setText(str(inter))
+    def btn_3(self):
+        intra, inter = data.btn_3(df=self.df,k=self.agnes_k.text())
+        self.output3.setText(str(intra))
+        self.output33.setText(str(inter))
+    def btn_4(self):
+        intra, inter = data.btn_4(df=self.df,k=self.diana_k.text())
+        self.output4.setText(str(intra))
+        self.output44.setText(str(inter))
     def scale_value(self):
         
         #my_dict={"StandardScaler":standard_scale ,"MinMaxScaler":min_max, "PowerScaler":power_scale}
@@ -154,11 +197,6 @@ class UI(QMainWindow):
         self.hist_column_add.removeItem(self.hist_column_add.findText(self.hist_column_add.currentText()))
 
 
-    def histogram_plot(self):
-        
-        AllItems = [self.hist_column_add.itemText(i) for i in range(self.hist_column_add.count())]
-        for i in AllItems:
-            data.plot_histogram(self.df,i)
         
         
     def heatmap_gen(self):
@@ -217,7 +255,7 @@ class UI(QMainWindow):
         self.table.setModel(x)
         
     def upload_model(self):
-        self.filePath_pre, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '/home/akshay/Dekstop',"pkl(*.pkl)")
+        self.filePath_pre, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', 'Users/Alaa/Documents/GitHub/clustering-app/dataset')
         with open(self.filePath_pre, 'rb') as file:
             self.pickle_model = pickle.load(file)
         
@@ -277,18 +315,22 @@ class UI(QMainWindow):
 
     def kmeans_plot(self):
 
-        data.kmeans_plot(df=self.df,x=self.scatter_x.currentText(),y=self.scatter_y.currentText(),k=self.scatter_c.currentText(),marker=self.scatter_mark.currentText())
+        data.kmeans_plot(df=self.df,x=self.scatter_x.currentText(),y=self.scatter_y.currentText(),k=self.scatter_c.text(),marker=self.scatter_mark.currentText())
 
         
 
     def kmedoid_plot(self):
 
-        data.kmedoid_plot(df=self.df,x=self.plot_x.currentText(),y=self.plot_y.currentText(),k=self.plot_c.currentText(),marker=self.plot_mark.currentText())
+        data.kmedoid_plot(df=self.df,x=self.plot_x.currentText(),y=self.plot_y.currentText(),k=self.plot_c.text(),marker=self.plot_mark.currentText())
      
     def agnes_plot(self):
-        data.agnes_plot(df=self.df,k=self.plot_c.currentText())
+        data.agnes_plot(df=self.df,k=self.agnes_k.text())
     def diana_plot(self):
-        data.kmedoid_plot(df=self.df,k=self.plot_c.currentText())
+        data.diana_plot(df=self.df,k=self.diana_k.text())
+    def dbscan_plot(self):
+        data.dbscan_plot(df=self.df,min_pts=self.minpts.text(),epsilon=self.eps.text(),range1=self.range1.text())
+    def perf_plot(self):
+        data.perf_plot(df=self.df,min_pts=self.minpts.text(),epsilon=self.eps.text(),range1=self.range1.text())
 
     def train_func(self):
 
@@ -300,9 +342,40 @@ class UI(QMainWindow):
             self.win = myDict[self.model_select.currentText()].UI(self.df,self.target_value,steps)
             
                     
-        
+ 
+    def histogram_plot(self):
+        data.plot_histogram(self.df,k=self.scatter_c)
+    def plot_histogram(self):
+        intra1, inter1 = data.btn_1(df=self.df,k=self.hist_k.text())
+        intra2, inter2 = data.btn_2(df=self.df,k=self.hist_k.text())
+        intra3, inter3 = data.btn_3(df=self.df,k=self.hist_k.text())
+        intra4, inter4 = data.btn_4(df=self.df,k=self.hist_k.text())
 
-        
+            
+        # define the methods
+        methods = ['K-Means', 'K-Medoids', 'AGNES', 'DIANA']
+
+        # define the intra and inter measures for each method
+        intra_measures = [intra1, intra2, intra3, intra4]
+        inter_measures = [inter1, inter2, inter3, inter4]
+
+        # plot the histogram for intra measures
+        fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(10, 5))
+
+        ax[0].bar(methods, intra_measures)
+        ax[0].set_title('Intra Measures')
+        ax[0].set_xlabel('Methods')
+        ax[0].set_ylabel('Values')
+
+        # plot the histogram for inter measures
+        ax[1].bar(methods, inter_measures)
+        ax[1].set_title('Inter Measures')
+        ax[1].set_xlabel('Methods')
+        ax[1].set_ylabel('Values')
+
+        plt.tight_layout()
+        plt.show()
+            
 
 
  

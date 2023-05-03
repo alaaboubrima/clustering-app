@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>933</width>
-    <height>1204</height>
+    <width>1116</width>
+    <height>684</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -178,7 +178,7 @@
      <rect>
       <x>360</x>
       <y>40</y>
-      <width>521</width>
+      <width>651</width>
       <height>181</height>
      </rect>
     </property>
@@ -243,7 +243,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Scatter Plot KMns</string>
+     <string>K-Means</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
@@ -262,14 +262,14 @@
      </font>
     </property>
     <property name="text">
-     <string>Line Plot KMd</string>
+     <string>K-Medoid</string>
     </property>
    </widget>
    <widget class="QPushButton" name="kmeanplot">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>570</y>
+      <y>580</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -288,7 +288,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>560</y>
+      <y>580</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -494,7 +494,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="scatter_vmax">
+   <widget class="QLineEdit" name="output11">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -551,9 +551,9 @@
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>10</x>
       <y>420</y>
-      <width>31</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -564,7 +564,7 @@
      </font>
     </property>
     <property name="text">
-     <string> c :</string>
+     <string>K (clusters)</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -595,7 +595,7 @@
    <widget class="QLabel" name="label_16">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>480</y>
       <width>81</width>
       <height>21</height>
@@ -608,7 +608,7 @@
      </font>
     </property>
     <property name="text">
-     <string> vmin  :</string>
+     <string>IntraClasse</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -617,9 +617,9 @@
    <widget class="QLabel" name="label_17">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>510</y>
-      <width>71</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -630,51 +630,11 @@
      </font>
     </property>
     <property name="text">
-     <string> vmax  :</string>
+     <string>InterClasse</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
     </property>
-   </widget>
-   <widget class="QComboBox" name="plot_c">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>420</y>
-      <width>81</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>3</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>5</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>g</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>b</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>y</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>k</string>
-     </property>
-    </item>
    </widget>
    <widget class="QComboBox" name="plot_marker">
     <property name="geometry">
@@ -754,7 +714,7 @@
    <widget class="QLabel" name="label_18">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>180</x>
       <y>480</y>
       <width>81</width>
       <height>21</height>
@@ -767,7 +727,7 @@
      </font>
     </property>
     <property name="text">
-     <string> vmin  :</string>
+     <string>IntraClasse</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -805,7 +765,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="plot_vmin">
+   <widget class="QLineEdit" name="output2">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -840,9 +800,9 @@
    <widget class="QLabel" name="label_21">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>180</x>
       <y>420</y>
-      <width>31</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -853,7 +813,7 @@
      </font>
     </property>
     <property name="text">
-     <string> c :</string>
+     <string>K (clusters)</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -894,9 +854,9 @@
    <widget class="QLabel" name="label_23">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>180</x>
       <y>510</y>
-      <width>71</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -907,13 +867,13 @@
      </font>
     </property>
     <property name="text">
-     <string> vmax  :</string>
+     <string>InterClasse</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="plot_vmax">
+   <widget class="QLineEdit" name="output22">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -1043,7 +1003,7 @@
    <widget class="QPushButton" name="scale_btn">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>910</x>
       <y>10</y>
       <width>101</width>
       <height>23</height>
@@ -1062,7 +1022,7 @@
    <widget class="QComboBox" name="scaler">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>770</x>
       <y>10</y>
       <width>131</width>
       <height>23</height>
@@ -1087,8 +1047,8 @@
    <widget class="QPushButton" name="heatmap">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>680</y>
+      <x>750</x>
+      <y>540</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -1103,44 +1063,12 @@
      <string>Show</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="hist_y">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>830</y>
-      <width>81</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_27">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>820</y>
-      <width>81</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Ubuntu Condensed</family>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Or</string>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>650</y>
-      <width>161</width>
+      <x>720</x>
+      <y>330</y>
+      <width>171</width>
       <height>21</height>
      </rect>
     </property>
@@ -1151,43 +1079,27 @@
      </font>
     </property>
     <property name="text">
-     <string>Histogram :  Select Columns</string>
+     <string>Histogram :  Comparaison</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="train_2">
+   <widget class="QLineEdit" name="hist_k">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>770</y>
+      <x>790</x>
+      <y>390</y>
       <width>81</width>
-      <height>41</height>
+      <height>21</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Ubuntu Condensed</family>
-      <pointsize>11</pointsize>
-     </font>
     </property>
     <property name="text">
-     <string>Other Plots</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="hist_bin">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>770</y>
-      <width>81</width>
-      <height>23</height>
-     </rect>
+     <string>3</string>
     </property>
    </widget>
    <widget class="QComboBox" name="hist_column">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>680</y>
+      <x>730</x>
+      <y>780</y>
       <width>79</width>
       <height>23</height>
      </rect>
@@ -1212,30 +1124,11 @@
      <string>Use a Pre-Trained Model :</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>650</y>
-      <width>161</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Ubuntu Condensed</family>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Select Training Model</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="hist_add_btn">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>680</y>
+      <x>820</x>
+      <y>780</y>
       <width>61</width>
       <height>23</height>
      </rect>
@@ -1250,86 +1143,13 @@
      <string>Add</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="train">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>760</y>
-      <width>151</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Ubuntu Condensed</family>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Train</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_26">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>830</y>
-      <width>81</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Ubuntu Condensed</family>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Figsize_y :</string>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_25">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>800</y>
-      <width>81</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Ubuntu Condensed</family>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Figsize_x :</string>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="hist_x">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>800</y>
-      <width>81</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="histogram">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>880</y>
+      <x>750</x>
+      <y>430</y>
       <width>81</width>
-      <height>23</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -1383,8 +1203,8 @@
    <widget class="QPushButton" name="hist_remove_btn">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>720</y>
+      <x>820</x>
+      <y>820</y>
       <width>61</width>
       <height>23</height>
      </rect>
@@ -1399,24 +1219,11 @@
      <string>Remove</string>
     </property>
    </widget>
-   <widget class="Line" name="line_6">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>650</y>
-      <width>16</width>
-      <height>301</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_24">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>770</y>
+      <x>700</x>
+      <y>390</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -1428,30 +1235,17 @@
      </font>
     </property>
     <property name="text">
-     <string>Bins :</string>
+     <string>K (clusters)</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="Line" name="line_5">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>650</y>
-      <width>16</width>
-      <height>301</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
    <widget class="QComboBox" name="hist_column_add">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>720</y>
+      <x>730</x>
+      <y>820</y>
       <width>79</width>
       <height>23</height>
      </rect>
@@ -1460,8 +1254,8 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>650</y>
+      <x>730</x>
+      <y>490</y>
       <width>161</width>
       <height>21</height>
      </rect>
@@ -1476,57 +1270,7 @@
      <string>Heatmap</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="model_select">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>680</y>
-      <width>181</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Linear Regression</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>SVM</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>SVR</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Logistic Regression</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Random Forest</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>K-Nearest Neighbour</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Gaussian NB</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Multi Layer Perceptron</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLineEdit" name="plot_vmin_2">
+   <widget class="QLineEdit" name="output4">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -1612,7 +1356,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="scatter_vmin_2">
+   <widget class="QLineEdit" name="output3">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -1625,9 +1369,9 @@
    <widget class="QLabel" name="label_33">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>530</x>
       <y>510</y>
-      <width>71</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -1638,7 +1382,7 @@
      </font>
     </property>
     <property name="text">
-     <string> vmax  :</string>
+     <string>InterClasse</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -1670,13 +1414,13 @@
      </font>
     </property>
     <property name="text">
-     <string>Line Plot</string>
+     <string>Diana</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_35">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>530</x>
       <y>480</y>
       <width>81</width>
       <height>21</height>
@@ -1689,7 +1433,7 @@
      </font>
     </property>
     <property name="text">
-     <string> vmin  :</string>
+     <string>IntraClasse</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -1783,9 +1527,9 @@
    <widget class="QLabel" name="label_36">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>350</x>
       <y>420</y>
-      <width>31</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -1796,7 +1540,7 @@
      </font>
     </property>
     <property name="text">
-     <string> c :</string>
+     <string>K (clusters)</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -1805,9 +1549,9 @@
    <widget class="QLabel" name="label_37">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>530</x>
       <y>420</y>
-      <width>31</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -1818,7 +1562,7 @@
      </font>
     </property>
     <property name="text">
-     <string> c :</string>
+     <string>K (clusters)</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -1840,7 +1584,7 @@
    <widget class="QLabel" name="label_38">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>350</x>
       <y>480</y>
       <width>81</width>
       <height>21</height>
@@ -1853,13 +1597,13 @@
      </font>
     </property>
     <property name="text">
-     <string> vmin  :</string>
+     <string>IntraClasse</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="plot_vmax_2">
+   <widget class="QLineEdit" name="output44">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -1872,9 +1616,9 @@
    <widget class="QLabel" name="label_39">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>350</x>
       <y>510</y>
-      <width>71</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -1885,7 +1629,7 @@
      </font>
     </property>
     <property name="text">
-     <string> vmax  :</string>
+     <string>InterClasse</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -1907,14 +1651,14 @@
      </font>
     </property>
     <property name="text">
-     <string>Scatter Plot AG/DI</string>
+     <string>Agnes</string>
     </property>
    </widget>
    <widget class="QPushButton" name="agnesplot">
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>560</y>
+      <y>580</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -1973,41 +1717,6 @@
     <property name="orientation">
      <enum>Qt::Vertical</enum>
     </property>
-   </widget>
-   <widget class="QComboBox" name="diana_k">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>420</y>
-      <width>81</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>r</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>g</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>b</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>y</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>k</string>
-     </property>
-    </item>
    </widget>
    <widget class="QComboBox" name="plot_marker_2">
     <property name="geometry">
@@ -2084,7 +1793,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QLineEdit" name="scatter_vmax_2">
+   <widget class="QLineEdit" name="output33">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -2093,41 +1802,6 @@
       <height>23</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QComboBox" name="agnes_k">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>420</y>
-      <width>81</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>3</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>g</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>b</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>y</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>k</string>
-     </property>
-    </item>
    </widget>
    <widget class="QLabel" name="label_42">
     <property name="geometry">
@@ -2168,7 +1842,7 @@
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>560</y>
+      <y>580</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -2224,11 +1898,11 @@
      <string>ELBOW</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Elbow_2">
+   <widget class="QPushButton" name="Elbow2">
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>600</y>
+      <y>610</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -2247,7 +1921,7 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>600</y>
+      <y>610</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -2266,7 +1940,7 @@
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>600</y>
+      <y>610</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -2284,8 +1958,8 @@
    <widget class="QLabel" name="label_44">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>420</y>
+      <x>900</x>
+      <y>830</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -2306,8 +1980,8 @@
    <widget class="QLabel" name="label_45">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>510</y>
+      <x>910</x>
+      <y>410</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -2319,30 +1993,17 @@
      </font>
     </property>
     <property name="text">
-     <string> vmax  :</string>
+     <string>epsilon</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="Line" name="line_10">
-    <property name="geometry">
-     <rect>
-      <x>750</x>
-      <y>330</y>
-      <width>16</width>
-      <height>301</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_46">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>390</y>
+      <x>900</x>
+      <y>800</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -2363,8 +2024,8 @@
    <widget class="QLabel" name="label_47">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>450</y>
+      <x>910</x>
+      <y>440</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -2376,7 +2037,7 @@
      </font>
     </property>
     <property name="text">
-     <string>marker  :</string>
+     <string>range</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -2385,8 +2046,8 @@
    <widget class="QLabel" name="label_48">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>360</y>
+      <x>900</x>
+      <y>770</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -2407,8 +2068,8 @@
    <widget class="QComboBox" name="plot_y_3">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>390</y>
+      <x>940</x>
+      <y>790</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -2417,19 +2078,19 @@
    <widget class="QComboBox" name="plot_x_3">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>360</y>
+      <x>940</x>
+      <y>760</y>
       <width>81</width>
       <height>23</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="Elbow_5">
+   <widget class="QPushButton" name="performance">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>600</y>
-      <width>81</width>
+      <x>940</x>
+      <y>480</y>
+      <width>101</width>
       <height>23</height>
      </rect>
     </property>
@@ -2440,25 +2101,28 @@
      </font>
     </property>
     <property name="text">
-     <string>ELBOW</string>
+     <string>Performence</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="plot_vmax_3">
+   <widget class="QLineEdit" name="eps">
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>980</x>
+      <y>410</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0.5</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dbscanplot">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
       <y>510</y>
-      <width>81</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="lineplot_3">
-    <property name="geometry">
-     <rect>
-      <x>800</x>
-      <y>560</y>
-      <width>81</width>
+      <width>101</width>
       <height>23</height>
      </rect>
     </property>
@@ -2469,89 +2133,14 @@
      </font>
     </property>
     <property name="text">
-     <string>Show</string>
+     <string>DBScan</string>
     </property>
-   </widget>
-   <widget class="QComboBox" name="plot_marker_3">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>450</y>
-      <width>81</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>.</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>,</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>o</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>v</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>^</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>&lt;</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>&gt;</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>-</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>1</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>2</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>3</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>4</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>8</string>
-     </property>
-    </item>
    </widget>
    <widget class="QComboBox" name="plot_c_3">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>420</y>
+      <x>940</x>
+      <y>820</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -2585,7 +2174,7 @@
    <widget class="Line" name="line_11">
     <property name="geometry">
      <rect>
-      <x>750</x>
+      <x>890</x>
       <y>330</y>
       <width>16</width>
       <height>301</height>
@@ -2595,21 +2184,24 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QLineEdit" name="plot_vmin_3">
+   <widget class="QLineEdit" name="minpts">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>480</y>
+      <x>980</x>
+      <y>380</y>
       <width>81</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>11</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_49">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>480</y>
+      <x>910</x>
+      <y>380</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -2621,7 +2213,7 @@
      </font>
     </property>
     <property name="text">
-     <string> vmin  :</string>
+     <string>min_pts</string>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -2630,7 +2222,7 @@
    <widget class="QLabel" name="label_50">
     <property name="geometry">
      <rect>
-      <x>790</x>
+      <x>950</x>
       <y>330</y>
       <width>161</width>
       <height>21</height>
@@ -2643,7 +2235,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Line Plot</string>
+     <string>DBScan</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn1">
@@ -2656,7 +2248,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Valider</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="scatter_c">
@@ -2668,6 +2260,113 @@
       <height>21</height>
      </rect>
     </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn2">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>540</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Valider</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn3">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>540</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Valider</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn4">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>540</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Valider</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="plot_c">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>420</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="agnes_k">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>420</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="diana_k">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>420</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="range">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>440</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_5">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>480</y>
+      <width>181</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -2676,7 +2375,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>933</width>
+     <width>1116</width>
      <height>21</height>
     </rect>
    </property>
